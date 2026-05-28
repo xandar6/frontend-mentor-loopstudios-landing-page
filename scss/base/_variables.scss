@@ -1,0 +1,51 @@
+@use "../utilities/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Alata&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+$media-sm: utilities.rem(700);
+
+:root {
+  /* Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-black: hsl(0, 0%, 0%);
+  --color-grey-200: hsl(0, 0%, 85%);
+  --color-img-overlay: hsla(0, 0%, 0%, 0.543);
+
+  --color-surface: var(--color-white);
+  --color-text: var(--color-black);
+  --color-focus: var(--color-grey-200);
+
+  /* Fonts */
+  --font-family-base: "Josefin Sans", sans-serif;
+  --font-family-alata: "Alata", sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+
+  // Typography
+  --section-title: clamp(#{utilities.rem(32)}, 4vw, #{utilities.rem(48)});
+
+  /* Media */
+  --media-sm: #{$media-sm};
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Layout */
+  --container-max: 62.5rem;
+  --container-padding: 2rem;
+  --section-padding: clamp(2rem, 6vw, 5rem);
+
+  /* Decorative */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --shadow-sm: 0 0.25rem 0.75rem hsl(0 0% 0% / 0.08);
+}

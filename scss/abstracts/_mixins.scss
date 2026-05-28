@@ -1,0 +1,22 @@
+@mixin link-underline {
+  display: inline-block;
+  position: relative;
+  padding-bottom: var(--space-1);
+
+  &::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 60%;
+    background-color: var(--color-surface);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s ease-out;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: translateX(-50%) scaleX(1);
+  }
+}
