@@ -106,10 +106,19 @@
 
   @media (min-width: variables.$media-sm) {
     background-image: url("../images/desktop/image-hero.jpg");
-    min-height: auto;
+    min-height: utilities.rem(650);
+
+    .container {
+      padding-block: var(--space-7) clamp(6rem, 8vw, 8rem);
+    }
+
+    &__nav {
+      padding-block: 0;
+    }
 
     &__hero-container {
-      place-items: normal;
+      align-items: center;
+      justify-items: start;
     }
 
     &__nav-list {
@@ -123,7 +132,7 @@
 
     &__hero-text {
       max-width: utilities.rem(650);
-      margin-block: var(--space-8);
+      margin-block: 0;
     }
 
     &__hero-text span {

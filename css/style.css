@@ -317,10 +317,17 @@ button {
 @media (min-width: 43.75rem) {
   .header {
     background-image: url("../images/desktop/image-hero.jpg");
-    min-height: auto;
+    min-height: 40.625rem;
+  }
+  .header .container {
+    padding-block: var(--space-7) clamp(6rem, 8vw, 8rem);
+  }
+  .header__nav {
+    padding-block: 0;
   }
   .header__hero-container {
-    place-items: normal;
+    align-items: center;
+    justify-items: start;
   }
   .header__nav-list {
     display: flex;
@@ -331,7 +338,7 @@ button {
   }
   .header__hero-text {
     max-width: 40.625rem;
-    margin-block: var(--space-8);
+    margin-block: 0;
   }
   .header__hero-text span {
     display: inline-block;
