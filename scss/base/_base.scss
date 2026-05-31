@@ -4,6 +4,11 @@ body {
   line-height: var(--line-height-base);
   background-color: var(--color-surface);
   color: var(--color-text);
+  overflow-x: hidden;
+}
+
+body.has-open-menu {
+  overflow: hidden;
 }
 
 a {

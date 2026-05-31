@@ -1,107 +1,97 @@
-# Frontend Mentor - Loopstudios landing page
+# Frontend Mentor - Loopstudios landing page solution
+
+This is my solution to the [Loopstudios landing page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw). The goal was to build a responsive landing page that matches the provided mobile and desktop designs while keeping the markup semantic and the interactions accessible.
 
 ![Design preview for the Loopstudios landing page coding challenge](preview.jpg)
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+- [Links](#links)
+- [Built with](#built-with)
+- [What I learned](#what-i-learned)
+- [Continued development](#continued-development)
+- [Useful resources](#useful-resources)
+- [AI collaboration](#ai-collaboration)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a good understanding of HTML and CSS and a basic understanding of JavaScript.**
-
-## The challenge
-
-Your challenge is to build out this landing page and get it looking as close to the design as possible.
-
-This challenge focuses mostly on HTML & CSS. There's a tiny bit of JS included for the mobile navigation toggle. But you could also choose to do this without JS!
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
-- See hover states for all interactive elements on the page
+- See hover and focus states for interactive elements
+- Open and close the mobile navigation menu
+- Navigate the mobile menu with a keyboard
 
-### Want some support on the challenge? 
+## Links
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+- Repository: [frontend-mentor-loopstudios-landing-page](https://github.com/xandar6/frontend-mentor-loopstudios-landing-page)
+- Live site: Not deployed yet
+- Challenge: [Frontend Mentor challenge page](https://www.frontendmentor.io/challenges/loopstudios-landing-page-N88J5Onjw)
 
-## Where to find everything
+## Built with
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+- Semantic HTML5
+- Sass
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first responsive workflow
+- Responsive images with the `picture` element
+- Vanilla JavaScript for the mobile navigation
+- BEM-style class naming
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+## What I learned
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+This project helped me practice building a page from a static design and thinking through the structure before styling. The layout uses a mix of Grid and Flexbox: Grid works well for the overlapping intro section and gallery, while Flexbox is useful for navigation and footer alignment.
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+I also learned more about accessible mobile navigation. The JavaScript does more than show and hide the menu visually: it updates ARIA state, prevents background scrolling while the menu is open, closes on `Escape`, and keeps keyboard focus inside the menu.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+```js
+function openMobileMenu() {
+  mobileMenu.classList.add("is-open");
+  mobileMenu.setAttribute("aria-hidden", "false");
+  btnOpenMobileMenu.setAttribute("aria-expanded", "true");
+  document.body.classList.add("has-open-menu");
+}
+```
 
-## Using AI coding assistants
+Another useful part was using the `picture` element to serve different image crops for mobile and desktop layouts.
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+```html
+<picture>
+  <source
+    media="(min-width: 43.750rem)"
+    srcset="images/desktop/image-interactive.jpg"
+  />
+  <img
+    src="images/mobile/image-interactive.jpg"
+    alt="Man wearing a virtual reality headset"
+  />
+</picture>
+```
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+## Continued development
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+Areas I want to keep improving in future projects:
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+- Planning responsive spacing more systematically before writing CSS
+- Testing keyboard navigation earlier in the build
+- Writing cleaner Sass partials as projects grow
+- Refining accessible names, focus states, and menu behavior
 
-## Building your project
+## Useful resources
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- [MDN - Responsive images](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images) - Helped reinforce when to use `picture` and `srcset`.
+- [MDN - ARIA: aria-expanded](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-expanded) - Useful for understanding how to communicate menu state.
+- [CSS-Tricks - A Complete Guide to CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) - A helpful Grid reference while working through the layout.
+- [CSS-Tricks - A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - A useful reminder for alignment patterns in navigation and footer sections.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+## AI collaboration
 
-## Deploying your project
+I used Codex as a mentor and reviewer during the project. The most useful parts were getting feedback on accessibility, checking keyboard behavior, reviewing BEM naming, and identifying polish items after the page visually matched the design.
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+## Author
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
-
-## Create a custom `README.md`
-
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
-
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
-
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
-
-## Submitting your solution
-
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
-
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
-
-## Sharing your solution
-
-There are multiple places you can share your solution:
-
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
-
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
-
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+- GitHub - [@xandar6](https://github.com/xandar6)
